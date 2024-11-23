@@ -1,0 +1,50 @@
+ <%= stylesheet_link_tag 'index_style' %>
+
+<h1>Books</h1>
+
+<body>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th Actions></th>
+    </tr>
+
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <td>
+          <%= link_to "Show", book_path(book.id) %>
+          <%= link_to "Edit", edit_book_path(book.id) %>
+          <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<h2>New book</h2>
+<% if @new_book.errors.any? %>
+  <%= @new_book.errors.count %> errors prohibited this book from being saved:
+  <ul>
+    <% @new_book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @new_book, url: '/books', method: :post do |f| %>
+  <div class="form-field">
+    <div>Title</div>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-field">
+    <div>Body</div>
+    <%= f.text_area :body %>
+  </div>
+
+  <%= f.submit 'Create Book', class: 'submit-bottom' %>
+<% end %>
+
+</body>

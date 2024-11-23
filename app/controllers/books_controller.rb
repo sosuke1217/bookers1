@@ -1,4 +1,4 @@
-class BookController < ApplicationController
+class BooksController < ApplicationController
   def new
   end
 
@@ -41,7 +41,7 @@ class BookController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to '/book'
+    redirect_to '/books'
   end
 
   private

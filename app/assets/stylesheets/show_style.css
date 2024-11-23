@@ -1,0 +1,8 @@
+.inline {
+  display: inline-block;
+  margin: 30px;
+}
+
+.inline div {
+  margin-bottom: 30px;
+}

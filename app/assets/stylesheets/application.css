@@ -14,4 +14,10 @@
  *= require_self
  */
 
- 
+ .form-field {
+  padding-bottom: 7px
+}
+
+.submit {
+  margin-bottom: 10px;
+}

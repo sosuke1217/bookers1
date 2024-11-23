@@ -1,0 +1,17 @@
+<%= stylesheet_link_tag 'show_style' %>
+
+<div>
+<%= flash[:notice] %>
+</div>
+
+<div class="inline">
+  <div>  
+    <span><strong>Title:</strong></span>
+    <span><%= @book.title %></span>
+  </div>
+  <div>
+    <span><strong>Body:</strong></span>
+    <span><%= @book.body %></span>
+  </div>
+</div>
+<div><%= link_to "Edit", edit_book_path(@book.id) %> | <%= link_to "Back", "/books" %></div>
